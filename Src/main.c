@@ -49,30 +49,26 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
+#include "tim.h"
+#include "usart.h"
+#include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "SBUS.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
-TIM_HandleTypeDef htim2;
-
-osThreadId Task_LEDHandle;
-osThreadId Task_PWMHandle;
 
 /* USER CODE BEGIN PV */
+
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
-static void MX_TIM2_Init(void);
-void Function_LED(void const * argument);
-void Function_PWM(void const * argument);                                    
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-                                
+void MX_FREERTOS_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -109,43 +105,14 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM2_Init();
+  MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
-     HAL_TIM_PWM_Start  ( &htim2,  TIM_CHANNEL_1 );
-		 HAL_TIM_PWM_Start  ( &htim2,  TIM_CHANNEL_2 );
-		 HAL_TIM_PWM_Start  ( &htim2,  TIM_CHANNEL_3 );
-		 HAL_TIM_PWM_Start  ( &htim2,  TIM_CHANNEL_4 );
+    
   /* USER CODE END 2 */
 
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
-
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
-
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
-
-  /* Create the thread(s) */
-  /* definition and creation of Task_LED */
-  osThreadDef(Task_LED, Function_LED, osPriorityNormal, 0, 128);
-  Task_LEDHandle = osThreadCreate(osThread(Task_LED), NULL);
-
-  /* definition and creation of Task_PWM */
-  osThreadDef(Task_PWM, Function_PWM, osPriorityHigh, 0, 128);
-  Task_PWMHandle = osThreadCreate(osThread(Task_PWM), NULL);
-
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
-
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
- 
+  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
 
   /* Start scheduler */
   osKernelStart();
@@ -220,160 +187,9 @@ void SystemClock_Config(void)
   HAL_NVIC_SetPriority(SysTick_IRQn, 15, 0);
 }
 
-/* TIM2 init function */
-static void MX_TIM2_Init(void)
-{
-
-  TIM_MasterConfigTypeDef sMasterConfig;
-  TIM_OC_InitTypeDef sConfigOC;
-
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 15;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 9999;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-  HAL_TIM_MspPostInit(&htim2);
-
-}
-
-/** Configure pins as 
-        * Analog 
-        * Input 
-        * Output
-        * EVENT_OUT
-        * EXTI
-*/
-static void MX_GPIO_Init(void)
-{
-
-  GPIO_InitTypeDef GPIO_InitStruct;
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOH_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : KEY_USER_Pin */
-  GPIO_InitStruct.Pin = KEY_USER_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(KEY_USER_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : LED1_Pin LED2_Pin LED3_Pin LED4_Pin */
-  GPIO_InitStruct.Pin = LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-}
-
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
-
-/* Function_LED function */
-void Function_LED(void const * argument)
-{
-
-  /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-  for(;;)
-  {
-		
-    osDelay(1);
-  }
-  /* USER CODE END 5 */ 
-}
-
-/* Function_PWM function */
-void Function_PWM(void const * argument)
-{
-  /* USER CODE BEGIN Function_PWM */
-	unsigned char count=0;
-  /* Infinite loop */
-  for(;;)
-  {
-		if(HAL_GPIO_ReadPin( GPIOA, KEY_USER_Pin )==1 ){ osDelay(500); count++; if(count>=4){count=0;}}
-
-		switch(count)
-		{
-			case 0 :
-		TIM2->CCR1=9000;
-		TIM2->CCR2=9000;
-		TIM2->CCR3=9000;
-		TIM2->CCR4=9000;
-			HAL_GPIO_WritePin(GPIOD, LED1_Pin|LED2_Pin|LED3_Pin|LED4_Pin, GPIO_PIN_SET);
-			break;
-			case 1 :
-		TIM2->CCR1=4000;
-		TIM2->CCR2=4000;
-		TIM2->CCR3=4000;
-		TIM2->CCR4=4000;
-			HAL_GPIO_WritePin(GPIOD, LED1_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOD, LED2_Pin|LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
-			break;
-			case 2 :
-		TIM2->CCR1=6000;
-		TIM2->CCR2=6000;
-		TIM2->CCR3=6000;
-		TIM2->CCR4=6000;
-			HAL_GPIO_WritePin(GPIOD, LED1_Pin|LED2_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOD, LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
-			break;
-			case 3 :
-		TIM2->CCR1=8000;
-		TIM2->CCR2=8000;
-		TIM2->CCR3=8000;
-		TIM2->CCR4=8000;
-			HAL_GPIO_WritePin(GPIOD, LED1_Pin|LED2_Pin|LED3_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOD, LED4_Pin, GPIO_PIN_RESET);
-			break;
-		}
-    osDelay(1);
-  }
-  /* USER CODE END Function_PWM */
-}
 
 /**
   * @brief  Period elapsed callback in non blocking mode

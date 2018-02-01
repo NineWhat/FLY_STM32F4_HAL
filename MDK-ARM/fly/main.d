@@ -29,6 +29,7 @@ fly\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 fly\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 fly\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 fly\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
+fly\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 fly\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 fly\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 fly\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
@@ -44,3 +45,8 @@ fly\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 fly\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 fly\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 fly\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+fly\main.o: ../Inc/tim.h
+fly\main.o: ../Inc/usart.h
+fly\main.o: ../Inc/gpio.h
+fly\main.o: ..\modules\SBUS.h
+fly\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
