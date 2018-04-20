@@ -54,7 +54,13 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include "sys.h"
+#include "mpu9250.h"
+#include "delay1.h"
+#include "usart.h"
+#include "inv_mpu.h"
+#include "inv_mpu_dmp_motion_driver.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/

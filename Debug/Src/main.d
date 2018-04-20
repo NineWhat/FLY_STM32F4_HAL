@@ -46,7 +46,13 @@ Src/main.o: ../Src/main.c D:/Github/FLY_STM32F4_HAL/Inc/main.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
  D:/Github/FLY_STM32F4_HAL/Inc/tim.h \
  D:/Github/FLY_STM32F4_HAL/Inc/usart.h \
- D:/Github/FLY_STM32F4_HAL/Inc/gpio.h
+ D:/Github/FLY_STM32F4_HAL/Inc/gpio.h \
+ D:/Github/FLY_STM32F4_HAL/module/mpu9250/sys.h \
+ D:/Github/FLY_STM32F4_HAL/module/mpu9250/mpu9250.h \
+ D:/Github/FLY_STM32F4_HAL/module/mpu9250/sys.h \
+ D:/Github/FLY_STM32F4_HAL/module/mpu9250/delay1.h \
+ D:/Github/FLY_STM32F4_HAL/module/DMP/driver/eMPL/inv_mpu.h \
+ D:/Github/FLY_STM32F4_HAL/module/DMP/driver/eMPL/inv_mpu_dmp_motion_driver.h
 
 D:/Github/FLY_STM32F4_HAL/Inc/main.h:
 
@@ -145,3 +151,15 @@ D:/Github/FLY_STM32F4_HAL/Inc/tim.h:
 D:/Github/FLY_STM32F4_HAL/Inc/usart.h:
 
 D:/Github/FLY_STM32F4_HAL/Inc/gpio.h:
+
+D:/Github/FLY_STM32F4_HAL/module/mpu9250/sys.h:
+
+D:/Github/FLY_STM32F4_HAL/module/mpu9250/mpu9250.h:
+
+D:/Github/FLY_STM32F4_HAL/module/mpu9250/sys.h:
+
+D:/Github/FLY_STM32F4_HAL/module/mpu9250/delay1.h:
+
+D:/Github/FLY_STM32F4_HAL/module/DMP/driver/eMPL/inv_mpu.h:
+
+D:/Github/FLY_STM32F4_HAL/module/DMP/driver/eMPL/inv_mpu_dmp_motion_driver.h:
