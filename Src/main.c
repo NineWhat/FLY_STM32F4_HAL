@@ -49,18 +49,20 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
+#include "i2c.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
-#include "sys.h"
-#include "mpu9250.h"
-#include "delay1.h"
-#include "usart.h"
-#include "inv_mpu.h"
-#include "inv_mpu_dmp_motion_driver.h"
+//#include "defines.h"
+#include "tm_stm32_disco.h"
+#include "tm_stm32_delay.h"
+#include "tm_stm32_mpu9250.h"
+#include "tm_stm32_usart.h"
+#include "tm_stm32_exti.h"
+#include "tm_stm32_ahrs_imu.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -113,6 +115,8 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM2_Init();
+  MX_I2C1_Init();
+  MX_USART2_UART_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 

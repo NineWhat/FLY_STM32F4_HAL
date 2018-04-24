@@ -4,7 +4,7 @@
   * @brief   Interrupt Service Routines.
   ******************************************************************************
   *
-  * COPYRIGHT(c) 2017 STMicroelectronics
+  * COPYRIGHT(c) 2018 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -42,7 +42,6 @@ int buffer[25];
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern UART_HandleTypeDef huart1;
 
 extern TIM_HandleTypeDef htim4;
 
@@ -73,6 +72,8 @@ void HardFault_Handler(void)
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
+    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+    /* USER CODE END W1_HardFault_IRQn 0 */
   }
   /* USER CODE BEGIN HardFault_IRQn 1 */
 
@@ -89,6 +90,8 @@ void MemManage_Handler(void)
   /* USER CODE END MemoryManagement_IRQn 0 */
   while (1)
   {
+    /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
+    /* USER CODE END W1_MemoryManagement_IRQn 0 */
   }
   /* USER CODE BEGIN MemoryManagement_IRQn 1 */
 
@@ -105,6 +108,8 @@ void BusFault_Handler(void)
   /* USER CODE END BusFault_IRQn 0 */
   while (1)
   {
+    /* USER CODE BEGIN W1_BusFault_IRQn 0 */
+    /* USER CODE END W1_BusFault_IRQn 0 */
   }
   /* USER CODE BEGIN BusFault_IRQn 1 */
 
@@ -121,6 +126,8 @@ void UsageFault_Handler(void)
   /* USER CODE END UsageFault_IRQn 0 */
   while (1)
   {
+    /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
+    /* USER CODE END W1_UsageFault_IRQn 0 */
   }
   /* USER CODE BEGIN UsageFault_IRQn 1 */
 
@@ -173,93 +180,6 @@ void TIM4_IRQHandler(void)
   /* USER CODE BEGIN TIM4_IRQn 1 */
 
   /* USER CODE END TIM4_IRQn 1 */
-}
-
-/**
-* @brief This function handles USART1 global interrupt.
-*/
-void USART1_IRQHandler(void)
-{
-  /* USER CODE BEGIN USART1_IRQn 0 */
-	
-	      int uart1_cache1[100];
-	
-        static uint8_t byteCNT = 0;
-
-        static uint32_t lastTime = 0;
-
-         uint32_t curTime;
-
-         uint32_t interval = 0;
-
-         HAL_NVIC_ClearPendingIRQ(UART4_IRQn);
-
-         if(lastTime == 0)
-
-         {
-
-                   curTime = HAL_GetTick();
-
-                   lastTime = curTime;
-
-         }
-
-         else
-
-         {
-
-                  curTime = HAL_GetTick();
-
-                   interval = curTime - lastTime;
-
-                   lastTime = curTime;
-
-                  
-
-                   if(interval >= 3)
-
-                   {
-
-                            if(byteCNT == 25 && uart1_cache1[0] == 0x0f && uart1_cache1[24] == 0x00)
-
-                            {
-
-                                   memcpy(buffer, uart1_cache1, byteCNT);
-
-                             }
-
-                            byteCNT = 0;
-
-                   }
-
-         }
-
-        
-
-         if(RESET != __HAL_UART_GET_FLAG(&huart1, UART_FLAG_ORE))
-
-         {
-
-                   __HAL_UART_CLEAR_FLAG(&huart1, UART_FLAG_ORE);
-
-                   uart1_cache1[byteCNT++] = huart1.Instance->DR;
-
-         }
-
-        
-
-         if(RESET != __HAL_UART_GET_FLAG(&huart1, UART_FLAG_RXNE))
-
-         {
-
-                   uart1_cache1[byteCNT++] = huart1.Instance->DR;
-
-         }
-  /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(&huart1);
-  /* USER CODE BEGIN USART1_IRQn 1 */
-
-  /* USER CODE END USART1_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

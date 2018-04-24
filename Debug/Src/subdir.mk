@@ -6,6 +6,7 @@
 C_SRCS += \
 ../Src/freertos.c \
 ../Src/gpio.c \
+../Src/i2c.c \
 ../Src/main.c \
 ../Src/stm32f4xx_hal_msp.c \
 ../Src/stm32f4xx_hal_timebase_TIM.c \
@@ -17,6 +18,7 @@ C_SRCS += \
 OBJS += \
 ./Src/freertos.o \
 ./Src/gpio.o \
+./Src/i2c.o \
 ./Src/main.o \
 ./Src/stm32f4xx_hal_msp.o \
 ./Src/stm32f4xx_hal_timebase_TIM.o \
@@ -28,6 +30,7 @@ OBJS += \
 C_DEPS += \
 ./Src/freertos.d \
 ./Src/gpio.d \
+./Src/i2c.d \
 ./Src/main.d \
 ./Src/stm32f4xx_hal_msp.d \
 ./Src/stm32f4xx_hal_timebase_TIM.d \
@@ -42,7 +45,7 @@ Src/%.o: ../Src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU GCC Compiler'
 	@echo $(PWD)
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"D:/Github/FLY_STM32F4_HAL/Inc" -I"D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc" -I"D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I"D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include" -I"D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F407xx -I"D:/Github/FLY_STM32F4_HAL/Inc" -I"D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc" -I"D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I"D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include" -I"D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Include" -I"D:/Github/FLY_STM32F4_HAL/module"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

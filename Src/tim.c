@@ -98,11 +98,6 @@ void MX_TIM2_Init(void)
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
   HAL_TIM_MspPostInit(&htim2);
 
 }
@@ -134,11 +129,10 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
   
     /**TIM2 GPIO Configuration    
     PA1     ------> TIM2_CH2
-    PA3     ------> TIM2_CH4
     PA5     ------> TIM2_CH1
     PB10     ------> TIM2_CH3 
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3|GPIO_PIN_5;
+    GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_5;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
