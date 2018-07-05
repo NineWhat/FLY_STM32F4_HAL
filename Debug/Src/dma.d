@@ -1,4 +1,9 @@
-Src/system_stm32f4xx.o: ../Src/system_stm32f4xx.c \
+Src/dma.o: ../Src/dma.c D:/Github/FLY_STM32F4_HAL/Inc/dma.h \
+ D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/stm32f4xx_hal_conf.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/main.h \
+ D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
+ D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Include/core_cm4.h \
@@ -7,11 +12,6 @@ Src/system_stm32f4xx.o: ../Src/system_stm32f4xx.c \
  D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Include/core_cmFunc.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Include/core_cmSimd.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
- D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
- D:/Github/FLY_STM32F4_HAL/Inc/stm32f4xx_hal_conf.h \
- D:/Github/FLY_STM32F4_HAL/Inc/main.h \
- D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
- D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
@@ -31,6 +31,18 @@ Src/system_stm32f4xx.o: ../Src/system_stm32f4xx.c \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h
 
+D:/Github/FLY_STM32F4_HAL/Inc/dma.h:
+
+D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/stm32f4xx_hal_conf.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/main.h:
+
+D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
+
+D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:
+
 D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 
 D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h:
@@ -46,16 +58,6 @@ D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Include/core_cmFunc.h:
 D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Include/core_cmSimd.h:
 
 D:/Github/FLY_STM32F4_HAL/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h:
-
-D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
-
-D:/Github/FLY_STM32F4_HAL/Inc/stm32f4xx_hal_conf.h:
-
-D:/Github/FLY_STM32F4_HAL/Inc/main.h:
-
-D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
-
-D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:
 
 D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:
 

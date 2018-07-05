@@ -29,6 +29,7 @@ Src/main.o: ../Src/main.c D:/Github/FLY_STM32F4_HAL/Inc/main.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  D:/Github/FLY_STM32F4_HAL/Inc/FreeRTOSConfig.h \
@@ -46,9 +47,21 @@ Src/main.o: ../Src/main.c D:/Github/FLY_STM32F4_HAL/Inc/main.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- D:/Github/FLY_STM32F4_HAL/Inc/i2c.h D:/Github/FLY_STM32F4_HAL/Inc/tim.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/dma.h D:/Github/FLY_STM32F4_HAL/Inc/i2c.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tim.h \
  D:/Github/FLY_STM32F4_HAL/Inc/usart.h \
- D:/Github/FLY_STM32F4_HAL/Inc/gpio.h
+ D:/Github/FLY_STM32F4_HAL/Inc/gpio.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_disco.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_gpio.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_delay.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_mpu9250.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_i2c.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/attributes.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_delay.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_usart.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_buffer.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_exti.h \
+ D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_ahrs_imu.h
 
 D:/Github/FLY_STM32F4_HAL/Inc/main.h:
 
@@ -112,6 +125,8 @@ D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.
 
 D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
+D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h:
+
 D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
 
 D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
@@ -146,6 +161,8 @@ D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/event_
 
 D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
 
+D:/Github/FLY_STM32F4_HAL/Inc/dma.h:
+
 D:/Github/FLY_STM32F4_HAL/Inc/i2c.h:
 
 D:/Github/FLY_STM32F4_HAL/Inc/tim.h:
@@ -153,3 +170,25 @@ D:/Github/FLY_STM32F4_HAL/Inc/tim.h:
 D:/Github/FLY_STM32F4_HAL/Inc/usart.h:
 
 D:/Github/FLY_STM32F4_HAL/Inc/gpio.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_disco.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_gpio.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_delay.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_mpu9250.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_i2c.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/attributes.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_delay.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_usart.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_buffer.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_exti.h:
+
+D:/Github/FLY_STM32F4_HAL/Inc/tm_stm32_ahrs_imu.h:

@@ -29,6 +29,7 @@ Src/stm32f4xx_it.o: ../Src/stm32f4xx_it.c \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h \
  D:/Github/FLY_STM32F4_HAL/Inc/stm32f4xx_it.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
@@ -107,6 +108,8 @@ D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+
+D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h:
 
 D:/Github/FLY_STM32F4_HAL/Inc/stm32f4xx_it.h:
 

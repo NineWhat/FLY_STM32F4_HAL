@@ -207,7 +207,6 @@ USART8       |PC2    PC3     |PC8    PC9     |PD13   PD14
 //#include "defines.h"
 #include "tm_stm32_gpio.h"
 #include "tm_stm32_buffer.h"
-#include "stm32f4xx_hal_usart.h"
 /**
  * @defgroup TM_USART_Typedefs
  * @brief    USART Typedefs
@@ -517,23 +516,23 @@ typedef enum {
 #define USART_STRING_DELIMITER              '\n'
 
 /* Configuration */
-#if defined(STM32F4XX)
+//#if defined(STM32F4XX)
 #define USART_TX_REG(USARTx)                ((USARTx)->DR)
 #define USART_WRITE_DATA(USARTx, data)      ((USARTx)->DR = (data))
 #define USART_READ_DATA(USARTx)             ((USARTx)->DR)
 #define GPIO_AF_UART5                       (GPIO_AF8_UART5)
 #define USART_STATUS_REG                    SR
-#else
-#define USART_TX_REG(USARTx)                ((USARTx)->TDR)
-#define USART_WRITE_DATA(USARTx, data)      ((USARTx)->TDR = (data))
-#define USART_READ_DATA(USARTx)             ((USARTx)->RDR)
-#if defined(STM32F7xx)
-#define GPIO_AF_UART5                       (GPIO_AF8_UART5)
-#else
-#define GPIO_AF_UART5                       (GPIO_AF7_UART5)
-#endif /* STM32F7xx */
-#define USART_STATUS_REG                    ISR
-#endif /* STM32F4XX */
+//#else
+//#define USART_TX_REG(USARTx)                ((USARTx)->TDR)
+//#define USART_WRITE_DATA(USARTx, data)      ((USARTx)->TDR = (data))
+//#define USART_READ_DATA(USARTx)             ((USARTx)->RDR)
+//#if defined(STM32F7xx)
+//#define GPIO_AF_UART5                       (GPIO_AF8_UART5)
+//#else
+//#define GPIO_AF_UART5                       (GPIO_AF7_UART5)
+//#endif /* STM32F7xx */
+//#define USART_STATUS_REG                    ISR
+//#endif /* STM32F4XX */
 
 /* Wait for TX empty */
 #define USART_TXEMPTY(USARTx)               ((USARTx)->USART_STATUS_REG & USART_FLAG_TXE)

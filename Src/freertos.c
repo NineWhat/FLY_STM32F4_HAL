@@ -186,7 +186,7 @@ void Function_USART(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-		HAL_UART_Receive_IT(&huart1, (uint8_t *)&DataBuffer, 0xff);
+	//	HAL_UART_Receive_IT(&huart1, (uint8_t *)&DataBuffer, 0xff);
 		
 		  _channels[0]  = ((buffer[1]    |buffer[2]<<8)                 & 0x07FF);
 			_channels[1]  = ((buffer[2]>>3 |buffer[3]<<5)                 & 0x07FF);

@@ -31,6 +31,7 @@ Src/freertos.o: ../Src/freertos.c \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -112,6 +113,8 @@ D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+
+D:/Github/FLY_STM32F4_HAL/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h:
 
 D:/Github/FLY_STM32F4_HAL/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 
